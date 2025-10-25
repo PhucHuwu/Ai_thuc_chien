@@ -1,5 +1,7 @@
 import os
 from bs4 import BeautifulSoup
+import os
+from bs4 import BeautifulSoup
 from weasyprint import HTML, CSS
 from weasyprint.text.fonts import FontConfiguration
 
@@ -15,12 +17,12 @@ def export_slides_to_pdf(output_filename="presentation.pdf"):
 
     soup_template = BeautifulSoup(index_html_content, 'html.parser')
 
-    # Find the navigation div and remove it from the template
+    # Remove the navigation div
     navigation_div = soup_template.find("div", class_="navigation")
     if navigation_div:
         navigation_div.decompose()
     
-    # Also remove the script tag that loads main.js as it's not needed for static PDF
+    # Remove the script tag that loads main.js
     script_tag = soup_template.find("script", src="js/main.js")
     if script_tag:
         script_tag.decompose()
@@ -32,16 +34,39 @@ def export_slides_to_pdf(output_filename="presentation.pdf"):
         print("Error: Could not find .slider-container in index.html")
         return
 
+    # Clear existing slide placeholders in the template
+    for placeholder_slide in slider_container.find_all("div", class_="slide"):
+        placeholder_slide.decompose()
+
     # Load the main CSS file
     with open(css_path, "r", encoding="utf-8") as f:
         main_css = f.read()
     
+    # Add CSS for page breaks and to ensure each slide takes a full page
+    pdf_specific_css = """
+    .slide {
+        page-break-after: always;
+        height: 100vh !important; /* Ensure each slide takes full viewport height */
+        width: 100vw !important; /* Ensure each slide takes full viewport width */
+        display: flex !important; /* Make sure all slides are displayed for PDF rendering */
+        opacity: 1 !important; /* Make sure all slides are visible for PDF rendering */
+    }
+    .slide:last-of-type {
+        page-break-after: avoid;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    """
+    
     # WeasyPrint expects a list of CSS objects
-    styles = [CSS(string=main_css, font_config=font_config)]
+    styles = [
+        CSS(string=main_css, font_config=font_config),
+        CSS(string=pdf_specific_css, font_config=font_config)
+    ]
 
-    # List to hold individual slide PDFs
-    all_pages = []
-
+    # Dynamically inject all slide contents into the template
     for i in range(1, 11):  # Assuming slides from slide1.html to slide10.html
         slide_file = os.path.join(slides_dir, f"slide{i}.html")
         if not os.path.exists(slide_file):
@@ -51,33 +76,21 @@ def export_slides_to_pdf(output_filename="presentation.pdf"):
         with open(slide_file, "r", encoding="utf-8") as f:
             slide_content = f.read()
 
-        # Create a new BeautifulSoup object for each slide based on the modified template
-        # This ensures each slide is rendered independently without carry-over issues
-        current_soup = BeautifulSoup(str(soup_template), 'html.parser')
-        current_slider_container = current_soup.find("div", class_="slider-container")
-
-        # Clear existing slide placeholders in the current_slider_container
-        for placeholder_slide in current_slider_container.find_all("div", class_="slide"):
-            placeholder_slide.decompose()
-
-        # Create a new active slide div and inject content
-        new_slide_div = current_soup.new_tag("div", class_="slide active", id=f"slide{i}")
+        new_slide_div = soup_template.new_tag("div", class_="slide", id=f"slide{i}")
         new_slide_div.append(BeautifulSoup(slide_content, 'html.parser'))
-        current_slider_container.append(new_slide_div)
-
-        # Convert the modified HTML to PDF
-        html_doc = HTML(string=str(current_soup), base_url=base_dir)
-        
-        # Render to a temporary PDF and append its pages
-        doc = html_doc.render(stylesheets=styles, font_config=font_config)
-        all_pages.extend(doc.pages)
-
-    # Combine all pages into a single PDF
-    if all_pages:
-        doc.copy(all_pages).write_pdf(output_filename)
+        slider_container.append(new_slide_div)
+    
+    # Convert the combined HTML to PDF
+    html_doc = HTML(string=str(soup_template), base_url=base_dir)
+    
+    try:
+        html_doc.write_pdf(output_filename, stylesheets=styles, font_config=font_config)
         print(f"Successfully exported all slides to {output_filename}")
-    else:
-        print("No slides were processed to create the PDF.")
+    except Exception as e:
+        print(f"Error during PDF generation: {e}")
+
+if __name__ == "__main__":
+    export_slides_to_pdf()
 
 if __name__ == "__main__":
     export_slides_to_pdf()
