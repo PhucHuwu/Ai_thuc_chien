@@ -1,0 +1,114 @@
+<style>
+    /* Slide Content Styles */
+    .slide h2 {
+        font-family: var(--font-heading);
+        font-size: 36px; /* Slightly smaller subheading */
+        margin-bottom: 15px;
+        color: var(--text-dark);
+        line-height: 1.2;
+    }
+
+    .slide h3 {
+        font-family: var(--font-heading);
+        font-size: 26px; /* Slightly smaller subheading for sections */
+        margin-bottom: 12px;
+        color: var(--primary-red);
+        line-height: 1.2;
+    }
+
+    .slide p {
+        font-family: var(--font-body);
+        font-size: 20px; /* Slightly smaller paragraph text */
+        max-width: 900px;
+        line-height: 1.6;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+    }
+
+    .slide ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+        max-width: 800px;
+        text-align: left;
+    }
+
+    .slide ul li {
+        font-family: var(--font-body);
+        font-size: 18px; /* Slightly smaller list item text */
+        margin-bottom: 8px;
+        padding-left: 30px;
+        position: relative;
+        color: var(--text-dark);
+    }
+
+    .slide ul li::before {
+        content: '🧧'; /* Tết-themed bullet point */
+        position: absolute;
+        left: 0;
+        color: var(--primary-red);
+        font-size: 20px; /* Adjusted bullet size */
+        top: -2px;
+    }
+
+    .highlight {
+        color: var(--primary-red);
+        font-weight: bold;
+    }
+
+    /* Image sizing and positioning for various layouts */
+    .slide img {
+        max-width: 100%;
+        max-height: 60vh; /* Reduced max height to 60% of viewport height */
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-two-column .col img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 400px; /* Adjusted container height for images in columns */
+        overflow: hidden;
+        max-height: 100%;
+        width: auto;
+    }
+
+    /* Slide Layouts */
+    .slide-two-column {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center; /* Changed to center for better vertical alignment */
+        padding: 30px 60px; /* Reduced padding */
+        text-align: left;
+        height: 100%; /* Ensure the column takes full height of the slide */
+    }
+
+    .slide-two-column .col {
+        flex: 1;
+        padding: 0 15px; /* Reduced padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+</style>
+<div class="slide-two-column">
+    <div class="col">
+        <h2>Ý tưởng & Khẩu hiệu Chủ đạo</h2>
+        <h3>Ý tưởng sáng tạo (Big Idea): <span class="highlight">"Gieo Mầm Tài Lộc, Gặt Hái An Vui"</span></h3>
+        <p>Ý tưởng này ví von việc gửi tiền vào "Sinh lời tự động" như hành động "gieo mầm" đầu xuân. Hạt mầm đó sẽ tự nảy nở, đơm hoa kết trái thành "tài lộc" sung túc, mang lại cho gia đình sự "an vui" trọn vẹn. Hình ảnh này vừa gần gũi với văn hóa Việt, vừa thể hiện rõ cơ chế hoạt động của sản phẩm.</p>
+        <img src="slides/img/big_idea_placeholder.png" alt="Gieo Mầm Tài Lộc, Gặt Hái An Vui">
+    </div>
+    <div class="col">
+        <h3>Khẩu hiệu (Slogan): <span class="highlight">"Tết Gieo Mầm, Lộc Sinh Sôi"</span></h3>
+        <ul>
+            <li>Ngắn gọn, dễ nhớ, giàu hình ảnh và cảm xúc.</li>
+            <li>Gắn liền với hành động "gieo mầm" trong ý tưởng lớn.</li>
+            <li>"Lộc Sinh Sôi" vừa là lời chúc, vừa trực tiếp nhắc đến tính năng "Sinh lời" của sản phẩm.</li>
+        </ul>
+    </div>
+</div>

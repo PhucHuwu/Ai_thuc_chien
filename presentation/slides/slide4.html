@@ -1,0 +1,116 @@
+<style>
+    /* Slide Content Styles */
+    .slide h2 {
+        font-family: var(--font-heading);
+        font-size: 40px; /* Larger subheading */
+        margin-bottom: 20px;
+        color: var(--text-dark);
+        line-height: 1.3;
+    }
+
+    .slide p {
+        font-family: var(--font-body);
+        font-size: 22px; /* Larger paragraph text */
+        max-width: 900px;
+        line-height: 1.7;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+    }
+
+    .slide ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        max-width: 800px;
+        text-align: left;
+    }
+
+    .slide ul li {
+        font-family: var(--font-body);
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding-left: 30px;
+        position: relative;
+        color: var(--text-dark);
+    }
+
+    .slide ul li::before {
+        content: '🧧'; /* Tết-themed bullet point */
+        position: absolute;
+        left: 0;
+        color: var(--primary-red);
+        font-size: 20px;
+    }
+
+    .highlight {
+        color: var(--primary-red);
+        font-weight: bold;
+    }
+
+    .sub-heading {
+        color: var(--green-accent);
+        font-style: italic;
+        font-size: 28px;
+    }
+
+    /* Image sizing and positioning for various layouts */
+    .slide img {
+        max-width: 100%;
+        max-height: 80vh; /* Limit max height to 80% of viewport height */
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-content-left .image-content,
+    .slide-image-right .image-content,
+    .slide-two-column .col img {
+        display: flex; /* Ensure image content is a flex container */
+        justify-content: center;
+        align-items: center;
+        max-height: 500px; /* Adjust container height for images in columns */
+        overflow: hidden; /* Hide overflow if image is too large */
+    }
+
+    .slide-content-left .image-content img,
+    .slide-image-right .image-content img {
+        max-height: 100%; /* Image should fit within its container */
+        width: auto;
+    }
+
+    /* Slide Layouts */
+    .slide-content-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 40px 80px;
+    }
+
+    .slide-content-left .text-content {
+        flex: 1;
+        padding-right: 40px;
+    }
+
+    .slide-content-left .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div class="slide-content-left">
+    <div class="text-content">
+        <h2>Lợi ích 1: Tiền Nhàn Rỗi, <span class="highlight">Sinh Lời Bất Ngờ</span></h2>
+        <p class="sub-heading">Đề xuất Giá trị Cốt lõi (CVP): "Tài lộc sinh sôi"</p>
+        <ul>
+            <li><span class="highlight">Tự động tích lũy lộc Tết:</span> Tiền lì xì, tiền thưởng Tết của cả gia đình sẽ không "ngủ quên" mà được tự động "gieo mầm" và sinh lời ngay lập tức.</li>
+            <li><span class="highlight">Sinh lời dễ dàng, không cần bận tâm:</span> Trong lúc bạn bận rộn sắm Tết, du xuân, sản phẩm vẫn âm thầm làm việc, giúp tài sản của bạn tăng trưởng mỗi ngày.</li>
+        </ul>
+    </div>
+    <div class="image-content">
+        <img src="slides/img/growth_chart_placeholder.png" alt="Biểu đồ tăng trưởng tài sản">
+    </div>
+</div>

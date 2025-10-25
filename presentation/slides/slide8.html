@@ -1,0 +1,121 @@
+<style>
+    /* Slide Content Styles */
+    /* Slide Content Styles */
+    .slide h2 {
+        font-family: var(--font-heading);
+        font-size: 36px;
+        /* Slightly smaller subheading */
+        margin-bottom: 20px; /* Increased spacing */
+        color: var(--text-dark);
+        line-height: 1.2;
+    }
+
+    .slide h3 {
+        font-family: var(--font-heading);
+        font-size: 26px;
+        /* Slightly smaller subheading for sections */
+        margin-bottom: 10px;
+        color: var(--primary-red);
+        line-height: 1.2;
+    }
+
+    .slide p {
+        font-family: var(--font-body);
+        font-size: 18px;
+        /* Smaller paragraph text */
+        max-width: 800px;
+        /* Reduced max-width */
+        line-height: 1.5;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+    }
+
+    .slide ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px auto;
+        max-width: 800px;
+        /* Reduced max-width for list */
+        text-align: left;
+    }
+
+    .slide ul li {
+        font-family: var(--font-body);
+        font-size: 18px;
+        /* Smaller list item text */
+        margin-bottom: 15px; /* Increased spacing */
+        padding-left: 30px;
+        position: relative;
+        color: var(--text-dark);
+    }
+
+    .slide ul li::before {
+        content: '🧧';
+        position: absolute;
+        left: 0;
+        color: var(--primary-red);
+        font-size: 20px;
+        top: -2px;
+    }
+
+    /* Image sizing and positioning for various layouts */
+    .slide img {
+        max-width: 100%;
+        max-height: 50vh;
+        /* Significantly reduced max height to 50% of viewport height */
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Specific adjustment for slide-list image */
+    .slide-list img {
+        max-width: 70%;
+        /* Adjusted max width */
+        max-height: 300px;
+        /* Adjusted max height */
+        margin-bottom: 20px; /* Increased spacing */
+    }
+
+    /* Slide Layouts */
+    .slide-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px 60px;
+        /* Reduced padding */
+        height: 100%;
+        /* Ensure the slide takes full height */
+        box-sizing: border-box;
+        /* Include padding in height calculation */
+    }
+</style>
+
+<div class="slide-list">
+    <h2>Kế hoạch Truyền Thông Đa Kênh</h2>
+    <ul>
+        <li>
+            <h3>1. Nền tảng số của Techcombank</h3>
+            <p>Hiển thị banner, pop-up trên Techcombank Mobile App, Website. Gửi thông báo đẩy với các thông điệp chúc
+                Tết và tài lộc.</p>
+        </li>
+        <li>
+            <h3>2. Mạng Xã Hội (Facebook, TikTok, YouTube)</h3>
+            <p>Chuỗi bài đăng tương tác "Gieo quẻ tài lộc đầu năm", video ngắn theo trend "biến hình" tiền lì xì, phim
+                ngắn kể chuyện.</p>
+        </li>
+        <li>
+            <h3>3. KOLs/Influencers</h3>
+            <p>Hợp tác với chuyên gia tài chính và hot family để chia sẻ câu chuyện thật về quản lý tiền lì xì và kế
+                hoạch tài chính.</p>
+        </li>
+        <li>
+            <h3>4. Hoạt động tại chi nhánh (Offline)</h3>
+            <p>Trang trí không gian theo chủ đề "Gieo Mầm Tài Lộc". Tặng bao lì xì có mã QR và "hạt mầm" (chocolate).
+            </p>
+        </li>
+    </ul>
+</div>

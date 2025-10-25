@@ -1,0 +1,111 @@
+<style>
+    /* Slide Content Styles */
+    .slide h2 {
+        font-family: var(--font-heading);
+        font-size: 40px; /* Larger subheading */
+        margin-bottom: 20px;
+        color: var(--text-dark);
+        line-height: 1.3;
+    }
+
+    .slide p {
+        font-family: var(--font-body);
+        font-size: 22px; /* Larger paragraph text */
+        max-width: 900px;
+        line-height: 1.7;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+    }
+
+    .slide ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        max-width: 800px;
+        text-align: left;
+    }
+
+    .slide ul li {
+        font-family: var(--font-body);
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding-left: 30px;
+        position: relative;
+        color: var(--text-dark);
+    }
+
+    .slide ul li::before {
+        content: '🧧'; /* Tết-themed bullet point */
+        position: absolute;
+        left: 0;
+        color: var(--primary-red);
+        font-size: 20px;
+    }
+
+    .highlight {
+        color: var(--primary-red);
+        font-weight: bold;
+    }
+
+    /* Image sizing and positioning for various layouts */
+    .slide img {
+        max-width: 100%;
+        max-height: 80vh; /* Limit max height to 80% of viewport height */
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-content-left .image-content,
+    .slide-image-right .image-content,
+    .slide-two-column .col img {
+        display: flex; /* Ensure image content is a flex container */
+        justify-content: center;
+        align-items: center;
+        max-height: 500px; /* Adjust container height for images in columns */
+        overflow: hidden; /* Hide overflow if image is too large */
+    }
+
+    .slide-content-left .image-content img,
+    .slide-image-right .image-content img {
+        max-height: 100%; /* Image should fit within its container */
+        width: auto;
+    }
+
+    /* Slide Layouts */
+    .slide-content-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 40px 80px;
+    }
+
+    .slide-content-left .text-content {
+        flex: 1;
+        padding-right: 40px;
+    }
+
+    .slide-content-left .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div class="slide-content-left">
+    <div class="text-content">
+        <h2>Giới thiệu giải pháp: <span class="highlight">Techcombank Sinh Lời Tự Động</span></h2>
+        <p>Sản phẩm giúp biến mọi khoản tiền nhàn rỗi, kể cả tiền lì xì, thành một nguồn tài sản tăng trưởng liên tục. Như một "thần tài" công nghệ, sản phẩm âm thầm làm việc để tài lộc của bạn sinh sôi.</p>
+        <h3>Cơ chế hoạt động đơn giản:</h3>
+        <ul>
+            <li>Tự động tích lũy và sinh lời từ tiền nhàn rỗi.</li>
+            <li>Không cần bận tâm, tài sản vẫn tăng trưởng mỗi ngày.</li>
+        </ul>
+    </div>
+    <div class="image-content">
+        <img src="slides/img/solution_placeholder.png" alt="Giải pháp Techcombank Sinh Lời Tự Động">
+    </div>
+</div>

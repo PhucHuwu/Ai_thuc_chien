@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techcombank - Chiến dịch Tết 2026</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Noto+Serif+Display:wght@400;700&display=swap');
+
+        :root {
+            --primary-red: rgb(237, 28, 36);
+            --gold-accent: #FFD700;
+            --green-accent: #32CD32;
+            --text-dark: #333;
+            --text-light: #f0f0f0;
+            --font-heading: 'Merriweather', serif;
+            --font-body: 'Noto Serif Display', serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #fceada, #f0f0f0); /* Subtle festive background */
+            overflow: hidden;
+            color: var(--text-dark);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 40px 80px; /* Increased padding */
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            background-color: rgba(var(--primary-red), 0.8); /* Red themed navigation */
+            padding: 12px 25px; /* Adjusted padding */
+            border-radius: 30px; /* More rounded */
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it's on top */
+        }
+
+        .navigation button {
+            background: var(--gold-accent);
+            border: none;
+            color: var(--primary-red);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 0 15px;
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navigation button:hover {
+            background-color: #ffd94d; /* Lighter gold on hover */
+            transform: translateY(-2px);
+        }
+
+        #slide-counter {
+            font-size: 18px; /* Larger font */
+            font-weight: bold;
+            color: var(--text-light);
+            font-family: var(--font-heading);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px 30px;
+            }
+
+            .slide h1 {
+                font-size: 40px;
+            }
+
+            .slide h2 {
+                font-size: 30px;
+            }
+
+            .slide p {
+                font-size: 18px;
+            }
+
+            .slide-list ul li {
+                font-size: 18px;
+            }
+
+            .slide-content-left, .slide-image-right, .slide-two-column {
+                flex-direction: column;
+                padding: 20px 30px;
+            }
+
+            .slide-content-left .text-content,
+            .slide-image-right .text-content {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .slide-quote blockquote {
+                font-size: 32px;
+            }
+
+            .slide-quote cite {
+                font-size: 20px;
+            }
+
+            .navigation {
+                padding: 8px 15px;
+                bottom: 20px;
+            }
+
+            .navigation button {
+                padding: 8px 15px;
+                margin: 0 10px;
+                font-size: 14px;
+            }
+
+            #slide-counter {
+                font-size: 16px;
+            }
+
+            .logo {
+                width: 120px;
+                top: 20px;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <!-- Slides will be dynamically loaded here by main.js -->
+        <div class="slide" id="slide1"></div>
+        <div class="slide" id="slide2"></div>
+        <div class="slide" id="slide3"></div>
+        <div class="slide" id="slide4"></div>
+        <div class="slide" id="slide5"></div>
+        <div class="slide" id="slide6"></div>
+        <div class="slide" id="slide7"></div>
+        <div class="slide" id="slide8"></div>
+        <div class="slide" id="slide9"></div>
+        <div class="slide" id="slide10"></div>
+    </div>
+
+    <div class="navigation">
+        <button id="prevBtn">Trước</button>
+        <span id="slide-counter">1 / 10</span>
+        <button id="nextBtn">Sau</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

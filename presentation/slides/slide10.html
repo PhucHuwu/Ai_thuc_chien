@@ -1,0 +1,64 @@
+<style>
+    /* Slide Content Styles */
+    .slide h1 {
+        font-family: var(--font-heading);
+        font-size: 60px; /* Larger heading */
+        margin-bottom: 25px;
+        color: var(--primary-red);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        line-height: 1.2;
+    }
+
+    .slide h2 {
+        font-family: var(--font-heading);
+        font-size: 40px; /* Larger subheading */
+        margin-bottom: 20px;
+        color: var(--text-dark);
+        line-height: 1.3;
+    }
+
+    .slide p {
+        font-family: var(--font-body);
+        font-size: 22px; /* Larger paragraph text */
+        max-width: 900px;
+        line-height: 1.7;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+    }
+
+    .highlight {
+        color: var(--primary-red);
+        font-weight: bold;
+    }
+
+    /* Image sizing and positioning for various layouts */
+    .slide img {
+        max-width: 100%;
+        max-height: 80vh; /* Limit max height to 80% of viewport height */
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .qr-code-placeholder {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Slide Layouts */
+    .slide-conclusion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 80px;
+    }
+</style>
+<div class="slide-conclusion">
+    <h2>Kêu gọi hành động (Call To Action)</h2>
+    <h1><span class="highlight">Kích hoạt Sinh Lời Tự Động</span> ngay trên ứng dụng Techcombank để nhận lộc đầu năm!</h1>
+    <p>Quét mã QR để tải ứng dụng hoặc truy cập ngay:</p>
+    <img src="slides/img/qr_code_placeholder.png" alt="Mã QR dẫn đến ứng dụng Techcombank">
+</div>
